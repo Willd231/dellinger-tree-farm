@@ -272,6 +272,7 @@ p { margin: 0 0 1em; }
 .inv-table tbody tr:last-child td { border-bottom: 0; }
 .inv-name { font-weight: 700; color: var(--forest-deep); }
 .inv-name small { display: block; font-weight: 400; font-style: italic; color: var(--text-muted); }
+.inv-note { display: inline-block; margin-top: 6px; padding: 2px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; background: #F6E7C8; color: #6B4A12; }
 .inv-row-in { animation: rowIn .45s var(--ease) both; }
 @keyframes rowIn { from { opacity: 0; transform: translateY(8px); } }
 .inv-count { color: var(--text-muted); margin-top: 12px; font-size: 1rem; }

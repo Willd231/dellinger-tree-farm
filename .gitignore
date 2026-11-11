@@ -10,3 +10,6 @@
 .DS_Store
 Thumbs.db
 node_modules/
+
+# Zoho exports have prices: keep them out of git (and off the public site)
+*.csv

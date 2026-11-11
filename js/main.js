@@ -77,11 +77,11 @@ function renderInventory() {
   } else {
     invBody.innerHTML = rows.map((item, i) => `
       <tr class="inv-row-in" style="animation-delay:${Math.min(i, 12) * 30}ms">
-        <td class="inv-name">${esc(item.name)}${item.botanical ? `<small>${esc(item.botanical)}</small>` : ""}</td>
+        <td class="inv-name">${esc(item.name)}${item.botanical ? `<small>${esc(item.botanical)}</small>` : ""}${item.note ? `<span class="inv-note">${esc(item.note)}</span>` : ""}</td>
         <td data-label="Category"><span class="tag">${esc(item.category)}</span></td>
         <td data-label="Size">${esc(item.size)}</td>
         <td data-label="Form">${esc(item.form)}</td>
-        <td class="inv-action"><button type="button" class="btn-quote" data-item="${esc(`${item.name}, ${item.size} ${item.form}`)}">Get a quote</button></td>
+        <td class="inv-action"><button type="button" class="btn-quote" data-item="${esc(`${item.name}${item.category === "Christmas Trees" ? " (Christmas tree)" : ""}, ${item.size} ${item.form}`)}">Get a quote</button></td>
       </tr>`).join("");
   }
   invCount.textContent = `Showing ${rows.length} of ${inventory.length} items`;
@@ -93,7 +93,7 @@ async function loadInventory() {
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     inventory = data.items ?? [];
-    const cats = [...new Set(inventory.map((i) => i.category))].sort();
+    const cats = [...new Set(inventory.map((i) => i.category))]; // keep the order from the data file
     invCategory.insertAdjacentHTML("beforeend", cats.map((c) => `<option>${esc(c)}</option>`).join(""));
     renderInventory();
   } catch {
