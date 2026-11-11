@@ -1,0 +1,15 @@
+{
+  "_note": "SAMPLE DATA for the draft. Replace with the live Zoho inventory feed. price: number for a dollar amount, or null to show 'Call'.",
+  "items": [
+    { "name": "Fraser Fir", "botanical": "Abies fraseri", "category": "Evergreens", "size": "5-6 ft", "form": "B&B", "price": null },
+    { "name": "Fraser Fir", "botanical": "Abies fraseri", "category": "Evergreens", "size": "3 gal", "form": "Container", "price": null },
+    { "name": "Norway Spruce", "botanical": "Picea abies", "category": "Evergreens", "size": "6-7 ft", "form": "B&B", "price": null },
+    { "name": "Eastern White Pine", "botanical": "Pinus strobus", "category": "Evergreens", "size": "5-6 ft", "form": "B&B", "price": null },
+    { "name": "Green Giant Arborvitae", "botanical": "Thuja 'Green Giant'", "category": "Evergreens", "size": "4-5 ft", "form": "B&B", "price": null },
+    { "name": "Red Maple", "botanical": "Acer rubrum", "category": "Shade Trees", "size": "2 in caliper", "form": "B&B", "price": null },
+    { "name": "Japanese Maple", "botanical": "Acer palmatum", "category": "Ornamental Trees", "size": "4-5 ft", "form": "B&B", "price": null },
+    { "name": "Catawba Rhododendron", "botanical": "Rhododendron catawbiense", "category": "Shrubs", "size": "3 gal", "form": "Container", "price": null },
+    { "name": "Mountain Laurel", "botanical": "Kalmia latifolia", "category": "Shrubs", "size": "3 gal", "form": "Container", "price": null },
+    { "name": "Boxwood", "botanical": "Buxus sempervirens", "category": "Shrubs", "size": "18-24 in", "form": "B&B", "price": null }
+  ]
+}
