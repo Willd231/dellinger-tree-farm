@@ -123,7 +123,7 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb();
 /* ---------- Contact form ---------- */
 const form = $("#contact-form");
 const status = $("#form-status");
-const EMAIL = "dellingertreefarm@gmail.com";
+const EMAIL = "tadellinger@gmail.com";
 
 function setStatus(msg, kind) {
   status.innerHTML = msg;
