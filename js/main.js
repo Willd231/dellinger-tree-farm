@@ -63,7 +63,6 @@ const invCount = $("#inv-count");
 let inventory = [];
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const fmtPrice = (p) => (typeof p === "number" ? `$${p.toFixed(2)}` : "Call");
 
 function renderInventory() {
   const q = invSearch.value.trim().toLowerCase();
@@ -82,7 +81,7 @@ function renderInventory() {
         <td data-label="Category"><span class="tag">${esc(item.category)}</span></td>
         <td data-label="Size">${esc(item.size)}</td>
         <td data-label="Form">${esc(item.form)}</td>
-        <td data-label="Price">${fmtPrice(item.price)}</td>
+        <td class="inv-action"><button type="button" class="btn-quote" data-item="${esc(`${item.name}, ${item.size} ${item.form}`)}">Get a quote</button></td>
       </tr>`).join("");
   }
   invCount.textContent = `Showing ${rows.length} of ${inventory.length} items`;
@@ -101,6 +100,26 @@ async function loadInventory() {
     invBody.innerHTML = `<tr><td colspan="5">We couldn't load the list right now. Please call <a href="tel:+18287659593">(828) 765-9593</a>.</td></tr>`;
   }
 }
+/* "Get a quote": add the plant to the contact form message and jump there.
+   Clicking several plants builds up one quote request. */
+invBody.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-quote");
+  if (!btn) return;
+  const f = $("#contact-form");
+  const msg = f.elements.message;
+  const line = `- ${btn.dataset.item} (qty: )`;
+  if (!msg.value.includes(btn.dataset.item)) {
+    msg.value = msg.value.trim()
+      ? `${msg.value.trimEnd()}\n${line}`
+      : `I'd like a quote on:\n${line}`;
+  }
+  const reason = f.elements.reason;
+  if (!reason.value) reason.value = "Pricing or availability";
+  btn.textContent = "Added ✓";
+  setTimeout(() => { btn.textContent = "Get a quote"; }, 1600);
+  $("#contact").scrollIntoView({ behavior: "smooth", block: "start" });
+  setTimeout(() => f.elements.name.focus({ preventScroll: true }), 600);
+});
 invSearch.addEventListener("input", renderInventory);
 invCategory.addEventListener("change", renderInventory);
 loadInventory();

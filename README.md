@@ -13,15 +13,15 @@ Import the repo in Vercel. Framework preset: **Other**. No build command. Add th
 - `index.html`: all sections (About, Inventory, Delivery, Gallery, FAQ, Contact, Map)
 - `css/styles.css`: colors are at the top (`--sage`, `--forest`), matched to the sign
 - `js/main.js`: menu, scroll effects, inventory search/filter, contact form
-- `data/inventory.json`: **sample** inventory. Replace with Zoho feed (`INVENTORY_URL` in main.js)
-- `api/contact.js`: form endpoint, Zoho TODO
+- `data/inventory.json`: the "What We Grow" list (no prices). Edit by hand.
+- `api/contact.js`: emails form inquiries via Resend (env: `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM`)
 - `images/`: put photos in `images/gallery/`
 
 ## Still to do
-- [ ] Real photos (about + gallery), logo from the sign
+- [x] Real photos (about + gallery)
+- [ ] Logo from the sign
 - [ ] Business hours
 - [ ] Order minimum (FAQ)
-- [ ] Zoho: inventory feed (`/api/inventory`) + form → Zoho leads
-- [ ] Confirm email address is `@gmail.com`
-- [ ] GoDaddy domain → Vercel
-# dellinger-tree-farm
+- [ ] Confirm the What We Grow plant list
+- [x] Contact form emails (Resend)
+- [x] GoDaddy domain → Vercel
