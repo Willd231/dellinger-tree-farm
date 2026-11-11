@@ -1,4 +1,4 @@
-# Dellinger's Wholesale Nursery: website (draft)
+# Dellinger Tree Farm: website (draft)
 
 Static site (HTML/CSS/JS) plus one Vercel serverless function. No build step.
 

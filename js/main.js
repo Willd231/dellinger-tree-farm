@@ -1,4 +1,4 @@
-// Dellinger's Wholesale Nursery: site behavior
+// Dellinger Tree Farm: site behavior
 document.documentElement.classList.add("js");
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -123,7 +123,7 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb();
 /* ---------- Contact form ---------- */
 const form = $("#contact-form");
 const status = $("#form-status");
-const EMAIL = "dellingerswholesalenursery@gmail.com";
+const EMAIL = "dellingertreefarm@gmail.com";
 
 function setStatus(msg, kind) {
   status.innerHTML = msg;
